@@ -10,4 +10,4 @@ manage.py
 *.egg-info
 *.mo
 *.egg
-
+*.swp
