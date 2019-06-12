@@ -1,0 +1,13 @@
+/__pycache__
+/studentsdb/__init__.py
+/studentsdb/_settings.py
+/studentsdb/_urls.py
+/studentsdb/_wsgl.py
+manage.py
+
+*.pyc
+*~
+*.egg-info
+*.mo
+*.egg
+
