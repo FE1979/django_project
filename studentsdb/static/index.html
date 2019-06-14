@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+  <head>
+    
+    <meta charset="utf-8">
+
+    <!-- Twitter Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./style/main.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+
+      <!-- Header Row -->
+      <div class="row">
+
+        <!-- Start Header -->
+        <div class="col-8" id="header">
+          <h1>Сервіс Обліку Студентів</h1>
+        </div>
+    
+        <!-- Start Group Selector -->
+        <div class="col-4" id="group-selector">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="group-selector-button" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+              Група
+            </button>
+            <div class="dropdown-menu" aria-labelledby="group-selector-button">
+             <a class="dropdown-item" href="#">Група 1</a>
+             <a class="dropdown-item" href="#">Група 2</a>
+             <a class="dropdown-item" href="#">Група 3</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div id="navigation">
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Студенти</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Відвідування</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Групи</a>
+          </li>
+      </div>
+  
+      <!-- Main Content -->
+      <div id="main">
+        <div class="alert alert-warning" id="alert">
+          Студента успішно додано
+        </div>
+        <table class="table table-stripped table-hover">
+          <tr>
+            <th><a href="#">№</a></th>
+            <th><a href="#">Фото</a></th>
+            <th><a href="#">Прізвище</a></th>
+            <th><a href="#">Ім'я</a></th>
+            <th><a href="#">№ білету</a></th>
+            <th><a href="#">Дії</a></th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td><img src="./img/perch.jpg" class="rounded-circle" style="width:40px;height:40px"></td>
+            <td>Окунь</td>
+            <td>Іван</td>
+            <td>5</td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="table-action-button" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+             Дії 
+                </button>
+                  <div class="dropdown-menu" aria-labelledby="group-selector-button">
+                   <a class="dropdown-item" href="#">Редугувати</a>
+                   <a class="dropdown-item" href="#">Відвідування</a>
+                   <a class="dropdown-item" href="#">Видалити</a>
+                  </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><img src="./img/pike.jpg" class="rounded-circle" style="width:40px;height:40px"></td>
+            <td>Щука</td>
+            <td>Михайлина</td>
+            <td>15</td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="table-action-button" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+             Дії 
+                </button>
+                  <div class="dropdown-menu" aria-labelledby="group-selector-button">
+                   <a class="dropdown-item" href="#">Редугувати</a>
+                   <a class="dropdown-item" href="#">Відвідування</a>
+                   <a class="dropdown-item" href="#">Видалити</a>
+                  </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><img src="./img/zander.jpeg" class="rounded-circle" style="width:40px;height:40px"></td>
+            <td>Судак</td>
+            <td>Дмитро</td>
+            <td>20</td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="table-action-button" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+             Дії 
+                </button>
+                  <div class="dropdown-menu" aria-labelledby="group-selector-button">
+                   <a class="dropdown-item" href="#">Редугувати</a>
+                   <a class="dropdown-item" href="#">Відвідування</a>
+                   <a class="dropdown-item" href="#">Видалити</a>
+                  </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+  
+      <!-- Footer -->
+      <div id="footer">
+        &copy База обліку студентів, 2019
+      </div>
+    </div>
+  </body>
+</html>
