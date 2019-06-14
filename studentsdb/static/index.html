@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./style/main.css">
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container">
 
       <!-- Header Row -->
       <div class="row">
@@ -55,9 +55,10 @@
   
       <!-- Main Content -->
       <div id="main">
-        <div class="alert alert-warning" id="alert">
+        <div class="alert alert-warning" role="alert" id="alert">
           Студента успішно додано
         </div>
+        <button type="button" class="btn btn-primary">Додати Студента</button>
         <table class="table table-stripped table-hover">
           <tr>
             <th><a href="#">№</a></th>
@@ -125,6 +126,16 @@
             </td>
           </tr>
         </table>
+        <nav id="pages">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">&laquo</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">&raquo</a></li>
+          </ul>
+        </nav>
       </div>
   
       <!-- Footer -->
