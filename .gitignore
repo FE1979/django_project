@@ -3,6 +3,7 @@
 /studentsdb/_settings.py
 /studentsdb/_urls.py
 /studentsdb/_wsgl.py
+studentsdb/_pycache__
 manage.py
 
 *.pyc
