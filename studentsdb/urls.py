@@ -21,4 +21,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Students urls
     re_path(r'^$', views.students_list, name='home'),
+    re_path(r'^students/add$', views.students_add, name='students_add'),
+    re_path(r'^students/(?P<sid>\d+)/edit$', views.students_edit,
+            name='students_edit'),
+    re_path(r'^students/(?P<sid>\d+)/delete$', views.students_delete,
+            name='students_delete'),
+
+    # Groups urls
+    re_path(r'^groups/$', views.group_list, name='group_home'),
+    re_path(r'^groups/add$', views.group_add, name='group_add'),
+    re_path(r'^groups/(?P<gid>\d+)/edit$', views.group_edit,
+            name='group_edit'),
+    re_path(r'^groups/(?P<gid>\d+)/delete$', views.group_delete,
+            name='group_delete'),
+
 ]
