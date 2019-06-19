@@ -1,0 +1,89 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+
+  <meta charset="utf-8">
+
+  <!-- Twitter Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+   <link rel="stylesheet" href="{% static "css/main.css" %}">
+   <title> Сервіс Обліку Студентів - {% block meta_title %} {% endblock meta_title %}</title>
+   <meta name="description" value="Система Обліку Студентів ВУЗу">
+   <meta name="viewport" Content="width=device-width, initial-scale=1">
+
+   {% block extra_css %}{% endblock extra_css %}
+
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header Row -->
+    <div class="row">
+
+      <!-- Start Header -->
+      <div class="col-8" id="header">
+        <h1>Сервіс Обліку Студентів</h1>
+      </div>
+
+      <!-- Start Group Selector -->
+      <div class="col-4" id="group-selector">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="group-selector-button" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+            Група
+          </button>
+          <div class="dropdown-menu" aria-labelledby="group-selector-button">
+           <a class="dropdown-item" href="#">Група 1</a>
+           <a class="dropdown-item" href="#">Група 2</a>
+           <a class="dropdown-item" href="#">Група 3</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div id="navigation">
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'home' %}">Студенти</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/journal">Відвідування</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'group_home' %}">Групи</a>
+        </li>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row" id="content-columns">
+      <div class="col-12" id="content-column">
+        {% comment "Not used alert so far" %}
+        <div class="alert alert-warning" role="alert">Status Update</div>
+
+        {% endcomment %}
+
+        <h2> {% block title %}{% endblock title %}<h2>
+        {%block content %}{% endblock content %}
+
+      </div>
+    </div>
+    <!-- End Content Columns -->
+
+    <!-- Footer -->
+    <div class="row" id="footer">
+      <div class="col-12">
+        &copy База обліку студентів, 2019
+      </div>
+    </div>
+    <!-- End Footer -->
+
+  </div>
+  <!-- End Container -->
+</body>
+</html>
