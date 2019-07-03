@@ -34,5 +34,6 @@ urlpatterns = [
             name='group_edit'),
     re_path(r'^groups/(?P<gid>\d+)/delete$', views.group_delete,
             name='group_delete'),
-
+    # Attendance urls
+    re_path(r'^journal', views.attendance, name='attendance'),
 ]
