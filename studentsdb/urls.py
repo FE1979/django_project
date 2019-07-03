@@ -15,25 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from students import views
+from students.views import students_view, groups_view, journal_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Students urls
-    re_path(r'^$', views.students_list, name='home'),
-    re_path(r'^students/add$', views.students_add, name='students_add'),
-    re_path(r'^students/(?P<sid>\d+)/edit$', views.students_edit,
+    re_path(r'^$', students_view.students_list, name='home'),
+    re_path(r'^students/add$', students_view.students_add, name='students_add'),
+    re_path(r'^students/(?P<sid>\d+)/edit$', students_view.students_edit,
             name='students_edit'),
-    re_path(r'^students/(?P<sid>\d+)/delete$', views.students_delete,
+    re_path(r'^students/(?P<sid>\d+)/delete$', students_view.students_delete,
             name='students_delete'),
 
     # Groups urls
-    re_path(r'^groups/$', views.group_list, name='group_home'),
-    re_path(r'^groups/add$', views.group_add, name='group_add'),
-    re_path(r'^groups/(?P<gid>\d+)/edit$', views.group_edit,
+    re_path(r'^groups/$', groups_view.group_list, name='group_home'),
+    re_path(r'^groups/add$', groups_view.group_add, name='group_add'),
+    re_path(r'^groups/(?P<gid>\d+)/edit$', groups_view.group_edit,
             name='group_edit'),
-    re_path(r'^groups/(?P<gid>\d+)/delete$', views.group_delete,
+    re_path(r'^groups/(?P<gid>\d+)/delete$', groups_view.group_delete,
             name='group_delete'),
     # Attendance urls
-    re_path(r'^journal', views.attendance, name='attendance'),
+    re_path(r'^journal', journal_views.attendance, name='attendance'),
 ]
