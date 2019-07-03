@@ -1,0 +1,58 @@
+{% extends 'students/base.html' %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Групи{% endblock meta_title %}
+
+{% block title %}База Студентів{% endblock title %}
+
+{% block content %}
+<a href="{% url 'group_add' %}" class="btn btn-primary">Додати Групу</a>
+
+<!-- Start Group Listing -->
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th><a href="#">№</a></th>
+      <th><a href="#">Назва</a></th>
+      <th><a href="#">Староста</a></th>
+      <th><a href="#">Дії</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for group in groups %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td><a href="{% url 'students_edit' student.id
+      %}">{{ group.title }}</a></td>
+      <td><a href="{% url 'students_edit' student.id
+      %}">{{ group.head }}</a></td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="table-action-button" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+       Дії
+          </button>
+            <div class="dropdown-menu" aria-labelledby="group-selector-button">
+             <a class="dropdown-item" href="{% url 'group_edit'
+               student.id %}">Редагувати</a>
+             <a class="dropdown-item" href="{% url 'group_delete'
+               student.id %}">Видалити</a>
+            </div>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<nav id="pages">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">&laquo</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">&raquo</a></li>
+  </ul>
+</nav>
+{% endblock content %}
