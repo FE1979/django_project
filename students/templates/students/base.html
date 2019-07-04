@@ -26,14 +26,18 @@
   <div class="container">
 
     <!-- Header Row -->
+    {% block header_row %}
     <div class="row">
 
+      {% block header %}	
       <!-- Start Header -->
       <div class="col-8" id="header">
         <h1>Сервіс Обліку Студентів</h1>
       </div>
+      {% endblock header %}
 
       <!-- Start Group Selector -->
+      {% block group_selector %}
       <div class="col-4" id="group-selector">
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" id="group-selector-button" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
@@ -45,10 +49,14 @@
            <a class="dropdown-item" href="#">Група 3</a>
           </div>
         </div>
+	{% endblock group_selector %}
+
       </div>
     </div>
+    {% endblock header_row %}
 
     <!-- Navigation -->
+    {% block navigation %}
     <div id="navigation">
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
@@ -64,6 +72,7 @@
             href="{% url 'group_home' %}">Групи</a>
         </li>
     </div>
+    {% endblock navigation %}
 
     <!-- Main Content -->
     <div class="row" id="content-columns">
@@ -81,11 +90,13 @@
     <!-- End Content Columns -->
 
     <!-- Footer -->
+    {% block footer %}
     <div class="row" id="footer">
       <div class="col-12">
         &copy База обліку студентів, 2019
       </div>
     </div>
+    {% endblock footer %}
     <!-- End Footer -->
 
   </div>
