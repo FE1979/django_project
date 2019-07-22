@@ -4,6 +4,8 @@
 /studentsdb/_urls.py
 /studentsdb/_wsgl.py
 studentsdb/_pycache__
+/media
+/students/static/img
 manage.py
 
 *.pyc
