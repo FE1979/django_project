@@ -6,6 +6,8 @@
 studentsdb/_pycache__
 /media
 /students/static/img
+/students/migrations
+/studentsdb/db.py
 manage.py
 
 *.pyc
