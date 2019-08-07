@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Students urls
     re_path(r'^$', students_view.students_list, name='home'),
+    re_path(r'^custom$', students_view.students_list_custom_page, name='home_custom'),
+
     re_path(r'^students/add$', students_view.students_add, name='students_add'),
     re_path(r'^students/(?P<sid>\d+)/edit$', students_view.students_edit,
             name='students_edit'),

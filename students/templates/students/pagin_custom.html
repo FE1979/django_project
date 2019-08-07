@@ -1,0 +1,15 @@
+{% with pages=pages %}
+{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+<nav id="pages">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="{% url "home_custom" %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo</a></li>
+    {% for p in pages %}
+    <li {% if students.number == p %}class="page-item active"{% endif %}>
+      <a class="page-link" href="{% url "home_custom" %}?page= {{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
+    </li>
+    {% endfor %}
+    <li class="page-item"><a class="page-link" href="{% url "home_custom" %}?page={{ students.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo</a></li>
+  </ul>
+</nav>
+{% endwith %}
+{% endwith %}
