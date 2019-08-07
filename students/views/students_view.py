@@ -14,6 +14,8 @@ def students_list(request):
         students = students.order_by(order_by)
         if request.GET.get('reverse', '') == '1':
             students = students.reverse()
+    else:
+        students = students.order_by('last_name')
 
     # paginate students
     paginator = Paginator(students, 3)
