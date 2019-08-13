@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import UpdateView
+
 from ..models import Student, Group
 from datetime import datetime
 
@@ -80,8 +82,7 @@ def students_add(request):
         if request.POST.get('add_button') is None:
             # return user to students list
             return HttpResponseRedirect(
-                "%s?status_message=Додавання скасовано" %
-                reverse('home'))
+                f"{reverse('home')}?status_message=Додавання скасовано")
 
         # if add button was pressed
         if request.POST.get('add_button') is not None:
@@ -139,8 +140,7 @@ def students_add(request):
 
                 # redirect to students list
                 return HttpResponseRedirect(
-                    "%s?status_message=Сутдента успішно додано" %
-                    reverse('home'))
+                    f"{reverse('home')}?status_message=Студента успішно додано")
 
             # if data is not valid
             else:
@@ -154,6 +154,25 @@ def students_add(request):
         # return initial form
         return render(request, 'students/students_add.html',
                   {'groups': Group.objects.all().order_by('title')})
+
+
+class StudentsUpdateView(UpdateView):
+    model = Student
+    fields = ['first_name', 'last_name', 'middle_name', 'student_group',
+              'birthday', 'photo', 'ticket', 'notes']
+    template_name = 'students/students_edit.html'
+
+    def get_success_url(self):
+        return f"{reverse('home')}?status_message=Сутдента успішно збережено"
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            return HttpResponseRedirect(
+                f"{reverse('home')}?status_message=Редагування студента\
+                відмінено")
+        else:
+            return super(StudentsUpdateView, self).post(request, *args,
+                                                        **kwargs)
 
 def students_edit(request, sid):
     return HttpResponse(f'<h2>Edit student {sid}</h2>')

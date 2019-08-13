@@ -63,8 +63,8 @@ def contact_admin(request):
             else:
                 message = "Повідомлення надіслане"
 
-            return HttpResponseRedirect('%s?status_message=%s' %
-                                        (reverse('contact_admin'), message))
+            return HttpResponseRedirect(
+                f"{reverse('home')}?status_message={message}")
 
     else:
         form = ContactForm()
