@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
-from students.views import students_view, groups_view, journal_views
+from students.views import students_view, groups_view, \
+                            journal_views, contact_admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,4 +41,8 @@ urlpatterns = [
             name='group_delete'),
     # Attendance urls
     re_path(r'^journal', journal_views.attendance, name='attendance'),
+
+    # Contact Admin Form
+    re_path(r'^contact-admin/$', contact_admin.contact_admin,
+            name='contact_admin'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
