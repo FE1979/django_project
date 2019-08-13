@@ -2,3 +2,13 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
+/* Errors font style */
+span.help-block {
+  color: red;
+}
+
+/* Form styles */
+textarea, select, input {
+  max-width: 300px;
+}
