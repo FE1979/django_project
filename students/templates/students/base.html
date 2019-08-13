@@ -71,16 +71,23 @@
           <a {% if group_home in request.path %}class="nav-item active"{% else %}class="nav-link"{% endif %}
             href="{% url 'group_home' %}">Групи</a>
         </li>
-    </div>
+        <li class="nav-item">
+          <a {% if '/contact_admin' in request.path %}class="nav-item active"{% else %}class="nav-link"{% endif %}
+            href="{% url 'contact_admin' %}">Контакт</a>
+        </li>
+     </div>
     {% endblock navigation %}
 
     <!-- Main Content -->
     <div class="row" id="content-columns">
       <div class="col-12" id="content-column">
-        {% comment "Not used alert so far" %}
-        <div class="alert alert-warning" role="alert">Status Update</div>
-
-        {% endcomment %}
+        {% block status_message %}
+        {% if request.GET.status_message %}
+        <div class="alert alert-warning" role="alert">
+          {{ request.GET.status_message }}
+        </div>
+        {% endif %}
+        {% endblock %}
 
         <h2> {% block title %}{% endblock title %}</h2>
         {% block content %}{% endblock content %}
