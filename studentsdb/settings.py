@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'students',
 ]
 
@@ -122,6 +123,9 @@ PORTAL_URL = 'http://localhost:8000'
 # Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#Crispy settings
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Admin contact
 ADMIN_EMAIL = 'ronin911@gmail.com'
