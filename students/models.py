@@ -79,5 +79,5 @@ class Group(models.Model):
         if self.leader:
             return f"{self.title} ({self.leader.first_name} \
 {self.leader.last_name})"
-
+        else:
             return f"{self.title}"
