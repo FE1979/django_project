@@ -29,10 +29,8 @@ urlpatterns = [
     re_path(r'^students/add$', students_view.students_add, name='students_add'),
     re_path(r'^students/(?P<pk>\d+)/edit$', students_view.StudentsUpdateView.as_view(),
             name='students_edit'),
-#    re_path(r'^students/edit(?P<sid>\d+)$', students_view.students_edit,
-#            name='students_edit'),
-    re_path(r'^students/(?P<sid>\d+)/delete$',
-            students_view.students_delete,
+    re_path(r'^students/(?P<pk>\d+)/delete$',
+            students_view.StudentDeleteView.as_view(),
             name='students_delete'),
 
     # Groups urls

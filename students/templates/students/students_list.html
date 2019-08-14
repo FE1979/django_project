@@ -64,9 +64,8 @@
           </button>
             <div class="dropdown-menu" aria-labelledby="group-selector-button">
                 <a class="dropdown-item" href="{% url 'students_edit' student.id %}">Редагувати</a>
-             <a class="dropdown-item" href="/journal/1">Відвідування</a>
-             <a class="dropdown-item" href="{% url 'students_delete'
-               student.id %}">Видалити</a>
+                <a class="dropdown-item" href="/journal/1">Відвідування</a>
+                <a class="dropdown-item" href="{% url 'students_delete' student.id %}">Видалити</a>
             </div>
         </div>
       </td>
