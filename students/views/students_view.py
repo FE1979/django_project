@@ -163,7 +163,7 @@ class StudentsUpdateView(UpdateView):
     template_name = 'students/students_edit.html'
 
     def get_success_url(self):
-        return f"{reverse('home')}?status_message=Сутдента успішно збережено"
+        return f"{reverse('home')}?status_message=Студента успішно збережено"
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
