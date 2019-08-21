@@ -1,7 +1,23 @@
 from django.contrib import admin
 from django.urls import reverse
+from django.forms import ModelForm, ValidationError
 
 from .models import Student, Group
+
+
+class StudentFormAdmin(ModelForm):
+
+    def clean_student_group(self):
+        """ Checks if student is leader of any group
+            Ensure it is the same group if it is"""
+
+        # get group where student is a leader
+        groups = Group.objects.filter(leader=self.instance)
+        if len(groups) > 0 and self.cleaned_data['student_group'] != groups[0]:
+            raise ValidationError("Студент є старостою іншої групи",
+                                  code='invalid')
+
+        return self.cleaned_data['student_group']
 
 
 class StudentAdmin(admin.ModelAdmin):
@@ -13,6 +29,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_per_page = 10
     search_fields = ['last_name', 'first_name', 'middle_name', 'ticket',
                      'notes']
+    form = StudentFormAdmin
 
     def view_on_site(self, obj):
         return reverse('students_edit', args=[obj.id])

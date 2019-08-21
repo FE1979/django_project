@@ -8,26 +8,18 @@ from django.views.generic import UpdateView, DeleteView
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from crispy_forms.bootstrap import FormActions
+from datetime import datetime
 
 from ..models import Student, Group
-from datetime import datetime
+from .celery_tasks import get_ordered_student_list, pause_run
 
 # Views for Students
 
 def students_list_custom_page(request):
-    students = Student.objects.all()
 
-    # order students list
-    order_by = request.GET.get('order_by', '')
-    if order_by in ('id', 'last_name', 'first_name', 'ticket'):
-        students = students.order_by(order_by)
-        if request.GET.get('reverse', '') == '1':
-            students = students.reverse()
-    else:
-        students = students.order_by('last_name')
+    students = get_ordered_student_list.delay(request)
 
     # paginate students
-
     list_len = len(students)
     paginator = 3 # items per page
 

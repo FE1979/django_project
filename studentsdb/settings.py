@@ -129,3 +129,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Admin contact
 ADMIN_EMAIL = 'ronin911@gmail.com'
+
+# Celery
+CELERY_BROKER_URL = 'amqp://localhost'
